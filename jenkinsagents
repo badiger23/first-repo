@@ -4,7 +4,7 @@ pipeline {
    stages {
        stage('checkout') {
           steps {
-              git branch: 'main', url: 'https://github.com/openjfx/samples.git'
+              git branch: 'main', url: 'https://github.com/AuthorizeNet/sample-code-java.git'
                 }
        }
        stage('test') {
