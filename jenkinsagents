@@ -1,0 +1,28 @@
+pipeline {
+   agent {label 'java-node'}
+
+   stages {
+       stage('checkout') {
+          steps {
+              git branch: 'main', url: 'https://github.com/openjfx/samples.git'
+                }
+       }
+       stage('test') {
+           steps {
+               echo"running static test on code "
+           }
+       }
+      stage('build') {
+           steps {
+               sh 'mvn clean package'
+           }
+      }
+      stage('deploy') {
+            steps {
+               echo "deploying into dev environment"
+               echo 'rsync'
+            }
+      }
+  
+    }
+}
