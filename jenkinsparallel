@@ -16,8 +16,8 @@ pipeline {
                 label 'java-node'
             }
             steps {
-                sh 'touch java-node'
-                sh 'mkdir java-node'
+                sh 'touch java_node'
+                sh 'mkdir java_node'
             }
         }
     }
