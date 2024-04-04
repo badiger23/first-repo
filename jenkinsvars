@@ -4,8 +4,7 @@ pipeline {
           buildDiscarder(logRotator(numToKeepStr: '2', daysToKeepStr: '2'))
           timestamps()
       }
-      }
-    environment {
+         environment {
         name= "adithya"
     }
     parameters {
