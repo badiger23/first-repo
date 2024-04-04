@@ -5,7 +5,7 @@ pipeline {
        stage('paralleljobs') {
                parallel{
                stage('stage-1A'){
-                  agent{label 'master'}
+                  agent{label 'java-node'}
                      steps{
                     sh 'sleep 10'
                }
