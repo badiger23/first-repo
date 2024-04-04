@@ -25,11 +25,5 @@ pipeline {
                 echo "choice is : ${params.env}"
             }
         }
-        stage('variables-stagelevel') {
-            steps {
-                echo "Job ${env.JOB_NAME} IS RUNNING ON ${env.JENKINS_URL}AND HAVING BUILD NO:${env.BUILD_ID}"
-                echo "name is: ${name}"
-                            }
-        }
-    }
+    }    }
 }
