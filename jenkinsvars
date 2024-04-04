@@ -1,10 +1,11 @@
 pipeline {
     agent any
      options {
-        buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '2', numToKeepStr: '2')
+          buildDiscarder(logRotator(numToKeepStr: '2', daysToKeepStr: '2'))
     }
+
     environment {
-        name="adithya"
+        name= "adithya"
     }
     parameters {
         string (defaultValue: 'jenkins', description: 'enter your id', name: 'user-id')
