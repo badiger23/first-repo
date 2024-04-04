@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('variables-demo') {
             steps {
-                echo 'Job ${env.JOB_NAME} IS RUNNING ON ${env.JENKINS_URL}AND HAVING BUILD NO:${env.BUILD_ID}'
+                echo "Job ${env.JOB_NAME} IS RUNNING ON ${env.JENKINS_URL}AND HAVING BUILD NO:${env.BUILD_ID}"
             }
         }
     }
