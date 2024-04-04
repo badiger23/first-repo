@@ -15,6 +15,5 @@ pipeline {
               sh 'touch java-node'
               sh 'mkdir java-node'
            }
-       }
-   }
+     }
 }
