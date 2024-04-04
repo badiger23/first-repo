@@ -16,7 +16,7 @@ pipeline {
              }
           }
         }
-       stage('stage-2' {
+       stage('stage-2') {
                    steps {
                            echo 'sh mkdir master-1'
                    }
