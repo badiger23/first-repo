@@ -20,7 +20,7 @@ pipeline {
         stage('deploy') {
             steps {
                 echo "deploying into dev environment"
-                sh 'rsync <your_rsync_options>'
+                
             }
         }
     }
