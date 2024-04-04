@@ -8,7 +8,6 @@ pipeline {
         booleanParam (defaultValue: true, name: 'myboolvalue')
         choice (choices: ['dev', 'test', 'prod', 'uat'], description: 'choose from above options', name: 'env')
     }
-
       stages {
         stage('variables-toplevel') {
              environment {
