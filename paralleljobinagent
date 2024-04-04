@@ -1,11 +1,10 @@
 
 pipeline {
-   agent none
+   agent {label 'java-node'}
    stages {
        stage('paralleljobs') {
-          agent{label 'java-node'}
-          parallel{
-          stage('stage-1A'){
+               parallel{
+               stage('stage-1A'){
                 steps{
                     sh 'sleep 120'
                }
@@ -18,12 +17,9 @@ pipeline {
           }
         }
        stage('stage-2' {
-         agent {label 'java-node'}
-           steps {
-              
-              echo 'sh touch master'
-              echo 'sh mkdir master-1'
-        }
-      }
-   }
+                   steps {
+                           echo 'sh mkdir master-1'
+                   }
+              }
+        }    
 }
