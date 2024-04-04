@@ -5,7 +5,7 @@ pipeline {
           timestamps()
       }
          environment {
-        name= "adithya"
+        name= 'adithya'
     }
     parameters {
         string (defaultValue: 'jenkins', description: 'enter your id', name: 'user-id')
@@ -13,7 +13,7 @@ pipeline {
         choice (choices: ['dev', 'test', 'prod', 'uat'], description: 'choose from above options', name: 'env')
     }
       stages {
-        stage('variables-toplevel') {
+        stage('variables') {
              environment {
                  place='bangalore'
              }
