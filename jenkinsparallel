@@ -5,8 +5,8 @@ pipeline {
        stage('stage-1') {
          agent{label 'master'}
           steps {
-              sh 'touch master'
-              sh 'mkdir master-1'
+              sh 'touch king'
+              sh 'mkdir king1'
          }
        }
        stage('stage-2') {
