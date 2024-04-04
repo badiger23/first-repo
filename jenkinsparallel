@@ -9,7 +9,7 @@ pipeline {
               sh 'mkdir master-1'
          }
        }
-       stage('stage-2' {
+       stage('stage-2') {
          agent {label 'java-node'}
            steps {
               sh 'touch java-node'
