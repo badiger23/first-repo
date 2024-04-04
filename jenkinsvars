@@ -2,7 +2,7 @@ pipeline {
     agent any
      options {
           buildDiscarder(logRotator(numToKeepStr: '2', daysToKeepStr: '2'))
-          timestamps
+          timestamps()
       }
       }
     environment {
