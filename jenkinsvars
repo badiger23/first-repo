@@ -1,30 +1,30 @@
 pipeline {
     agent any
-     options {
-          buildDiscarder(logRotator(numToKeepStr: '2', daysToKeepStr: '2'))
-          timestamps()
-      }
-         environment {
-        name= 'adithya'
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '2', daysToKeepStr: '2'))
+        timestamps()
+    }
+    environment {
+        name = 'adithya'
     }
     parameters {
-        string (defaultValue: 'jenkins', description: 'enter your id', name: 'user-id')
-        booleanParam (defaultValue: true, name: 'myboolvalue')
-        choice (choices: ['dev', 'test', 'prod', 'uat'], description: 'choose from above options', name: 'env')
+        string(defaultValue: 'jenkins', description: 'enter your id', name: 'user-id')
+        booleanParam(defaultValue: true, name: 'myboolvalue')
+        choice(choices: ['dev', 'test', 'prod', 'uat'], description: 'choose from above options', name: 'env')
     }
-      stages {
+    stages {
         stage('variables') {
-             environment {
-                 place='bangalore'
-             }
-              steps {
-                echo "Job ${env.JOB_NAME} IS RUNNING ON ${env.JENKINS_URL}AND HAVING BUILD NO:${env.BUILD_ID}"
-                echo "name is :${name}"
-                echo "place is :${place}"
-                echo "user id is :${params.user-id}"
-                echo "boolean value :${params.myboolvalue}"
-                echo "choice is : ${params.env}"
+            environment {
+                place = 'bangalore'
+            }
+            steps {
+                echo "Job ${env.JOB_NAME} is running on ${env.JENKINS_URL} and having build no: ${env.BUILD_ID}"
+                echo "name is: ${params.name}"
+                echo "place is: ${place}"
+                echo "user id is: ${params.user-id}"
+                echo "boolean value: ${params.myboolvalue}"
+                echo "choice is: ${params.env}"
             }
         }
-    }   
+    }
 }
