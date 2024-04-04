@@ -7,13 +7,13 @@ pipeline {
                stage('stage-1A'){
                   agent{label 'master'}
                      steps{
-                    sh 'sleep 120'
+                    sh 'sleep 10'
                }
            }
         stage('stage-1B'){
            agent{label 'master'}
                 steps{
-                    sh 'sleep 120'
+                    sh 'sleep 10'
                 }
              }
           }
