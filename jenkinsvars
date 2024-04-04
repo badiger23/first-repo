@@ -18,9 +18,9 @@ pipeline {
                 echo "Job ${env.JOB_NAME} IS RUNNING ON ${env.JENKINS_URL}AND HAVING BUILD NO:${env.BUILD_ID}"
                 echo "name is :${name}"
                 echo "place is :${place}"
-                echo "user id is :${user-id}"
-                echo "boolean value :${myboolvalue}"
-                echo "choice is : ${env}"
+                echo "user id is :${params.user-id}"
+                echo "boolean value :${params.myboolvalue}"
+                echo "choice is : ${params.env}"
             }
         }
         stage('variables-stagelevel') {
