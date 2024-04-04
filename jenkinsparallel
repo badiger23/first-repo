@@ -17,7 +17,7 @@ pipeline {
             }
             steps {
                 sh 'touch java_node'
-                sh 'mkdir java_node'
+                sh 'mkdir janode'
             }
         }
     }
