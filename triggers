@@ -20,9 +20,8 @@ pipeline {
                 label 'java-node'
             }
             steps {
-                sh 'sleep 60'
-                echo 'sh touch master'
-                echo 'sh mkdir master-1'
+                     echo 'sh touch master'
+                     echo 'sh mkdir master-1'
             }
         }
     }
