@@ -1,27 +1,29 @@
-
 pipeline {
-   agent none
-   triggers {
-            cron '* * * * *'
-            upstream 'pipeline-demo, '
-   }
+    agent none
+    triggers {
+        cron('* * * * *')
+        upstream('pipeline-demo')
+    }
 
-
-   stages {
-       stage('stage-1') {
-         agent{label 'master'}
-          steps {
-              echo 'sh touch master'
-              echo 'sh mkdir master-1'
-         }
-       }
-       stage('stage-2' {
-         agent {label 'java-node'}
-           steps {
-              sh 'sleep 60'
-              echo 'sh touch master'
-              echo 'sh mkdir master-1'
+    stages {
+        stage('stage-1') {
+            agent {
+                label 'master'
+            }
+            steps {
+                echo 'sh touch master'
+                echo 'sh mkdir master-1'
+            }
         }
-      }
-   }
+        stage('stage-2') {
+            agent {
+                label 'java-node'
+            }
+            steps {
+                sh 'sleep 60'
+                echo 'sh touch master'
+                echo 'sh mkdir master-1'
+            }
+        }
+    }
 }
