@@ -3,6 +3,12 @@ pipeline {
     environment {
         name="adithya"
     }
+    parameters {
+        string (defaultValue: 'jenkins', description: 'enter your id', name: 'user-id')
+        booleanParam (defaultValue: true, name: 'myboolvalue')
+        choice (choices: ['dev', 'test', 'prod', 'uat'], description: 'choose from above options', name: 'env')
+    }
+
       stages {
         stage('variables-toplevel') {
              environment {
@@ -11,7 +17,10 @@ pipeline {
               steps {
                 echo "Job ${env.JOB_NAME} IS RUNNING ON ${env.JENKINS_URL}AND HAVING BUILD NO:${env.BUILD_ID}"
                 echo "name is :${name}"
-                 echo "place is :${place}"
+                echo "place is :${place}"
+                echo "user id is :${user-id}"
+                echo "boolean value :${myboolvalue}"
+                echo "choice is : ${env}"
             }
         }
         stage('variables-stagelevel') {
