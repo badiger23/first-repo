@@ -1,28 +1,27 @@
 pipeline {
-   agent {label 'java-node'}
+    agent { label "java-node" }
 
-   stages {
-       stage('checkout') {
-          steps {
-              git branch: 'main', url: 'https://github.com/AuthorizeNet/sample-code-java.git'
-                }
-       }
-       stage('test') {
-           steps {
-               echo"running static test on code "
-           }
-       }
-      stage('build') {
-           steps {
-               sh 'mvn clean package'
-           }
-      }
-      stage('deploy') {
+    stages {
+        stage('checkout') {
             steps {
-               echo "deploying into dev environment"
-               echo 'rsync'
+                git branch: 'main', url: 'https://github.com/AuthorizeNet/sample-code-java.git'
             }
-      }
-  
+        }
+        stage('test') {
+            steps {
+                echo "running static test on code"
+            }
+        }
+        stage('build') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+        stage('deploy') {
+            steps {
+                echo "deploying into dev environment"
+                sh 'rsync <your_rsync_options>'
+            }
+        }
     }
 }
