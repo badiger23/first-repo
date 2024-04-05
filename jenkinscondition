@@ -25,7 +25,8 @@ pipeline {
             }
         }
         stage('deploy') {
-            
+            when{
+                environment name: 'deploy_to', value: 'prod'
             steps {
                 echo "deploying into  environment"
                
