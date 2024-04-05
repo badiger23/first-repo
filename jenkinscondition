@@ -12,6 +12,10 @@ pipeline {
             }
         }
         stage('test') {
+            input{
+                message "should we continue?"
+                ok "yes!!!"   
+            } 
             steps {
                 echo "running static test on code"
             }
