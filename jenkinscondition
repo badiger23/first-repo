@@ -25,12 +25,10 @@ pipeline {
             }
         }
         stage('deploy') {
-            when {
-                expression { params.deploy_to == 'prod' }
-            }
+            
             steps {
-                echo "deploying into ${params.deploy_to} environment"
-                // Add actual deployment steps here
+                echo "deploying into  environment"
+               
             }
         }
     }
