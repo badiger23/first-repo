@@ -14,8 +14,11 @@ pipeline {
             }
         }
         stage('build') {
+           when{
+              branch "master"
+            }
             steps {
-                sh 'mvn clean package'
+                sh 'echo "building the code "'
             }
         }
         stage('deploy') {
