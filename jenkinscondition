@@ -3,8 +3,8 @@
 pipeline {
     agent any
     parameters {
-        choice(name: 'deploy_to',choice:['dev', 'qa', 'prod'])
-
+        choice(name: 'deploy_to', choices: ['dev', 'qa', 'prod'])
+    }
     stages {
         stage('checkout') {
             steps {
@@ -17,20 +17,21 @@ pipeline {
             }
         }
         stage('build') {
-           when{
-              branch "main"
+            when {
+                branch "main"
             }
             steps {
                 sh 'echo "building the code "'
             }
         }
         stage('deploy') {
-               when {
-                   environment name: 'deploy_to', value: 'prod'
-                 }
+            when {
+                expression { params.deploy_to == 'prod' }
+            }
             steps {
-                echo "deploying into dev environment"
-                
+                echo "deploying into ${params.deploy_to} environment"
+                // Add actual deployment steps here
             }
         }
     }
+}
