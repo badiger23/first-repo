@@ -19,7 +19,7 @@ pipeline {
         }
         stage('deploy') {
             steps {
-                echo "deploying into dev environment"
+                sh 'rsync -r /home/ubuntu/jenkins/workspace/thirdjob/target/*.war /opt/tomcat/webapps/'
                 
             }
         }
