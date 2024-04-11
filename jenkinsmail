@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+    stages {
+        stage('checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/adibali/first-repo.git'
+            }
+        }
+        stage('env') {
+            steps {
+                echo " echo "Job ${env.JOB_NAME} is running on ${env.JENKINS_URL} and having build no: ${env.BUILD_ID}""
+            }
+        }
+     }
+  }
