@@ -18,10 +18,10 @@ pipeline {
         }
         stage('deploy') {
             steps {
-                sshagent(['deploy_user']) {
-                    sh 'rsync var/lib/jenkins/workspace/thirdjob/target/*.war /home/ec2-user/tomcat/webapps'
+               
+                   sh 'rsync var/lib/jenkins/workspace/thirdjob/target/*.war ec2-user@18.223.241.253:/opt/tomcat/webapps'
                 }
             }
         }
     }
-}
+
