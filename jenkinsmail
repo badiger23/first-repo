@@ -11,5 +11,12 @@ pipeline {
                 echo " echo "Job ${env.JOB_NAME} is running on ${env.JENKINS_URL} and having build no: ${env.BUILD_ID}""
             }
         }
+        stage('mail') {
+           steps {
+             mail bcc: '', body: 'hi, welcome to jenkins,email alerts', cc: '', from: '', replyTo: '', subject: 'jenkins email', to: 'adi.balaji1@gmail.com'
+
+            }
+        }
      }
   }
+
