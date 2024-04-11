@@ -1,5 +1,4 @@
 
-
 pipeline {
     agent any
     stages {
@@ -15,18 +14,15 @@ pipeline {
                 }
             }
         }
-       stage('mail') {
-           steps {
-               script {
-                   emailext (
-                    to: 'adi.balaji1@gmail.com',
-                    subject: 'Jenkins email',
-                     body: 'Hi, welcome to Jenkins! Email alerts.',
-                    attachLog: true
-                 )
-               }
-         }
-     }
+    }
+    post {
+        always {
+            emailext (
+                to: 'adi.balaji1@gmail.com',
+                subject: 'Jenkins email',
+                body: 'Hi, welcome to Jenkins! Email alerts.',
+                attachLog: true
+            )
         }
     }
 }
