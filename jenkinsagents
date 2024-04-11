@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/AuthorizeNet/sample-code-java.git'
+                git branch: 'main', url: 'https://github.com/adibali/first-repo.git'
             }
         }
         stage('test') {
