@@ -20,7 +20,7 @@ pipeline {
             emailext (
                 to: 'adi.balaji1@gmail.com',
                 subject: 'Jenkins email',
-                body: 'Hi, welcome to Jenkins! Email alerts.',
+                body: 'echo "Job ${env.JOB_NAME} is running on ${env.JENKINS_URL} and having build no: ${env.BUILD_ID}"',
                 attachLog: true
             )
         }
