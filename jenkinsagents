@@ -18,9 +18,9 @@ pipeline {
         }
         stage('deploy') {
             steps {
-                sh 'rsync -r /home/ubuntu/jenkins/workspace/thirdjob/target/*.war /opt/tomcat/webapps/'
-                
-            }
+                sshagent(['deploy_user']) {
+                   sh 'rsync -r /home/ubuntu/jenkins/workspace/thirdjob/target/*.war /home/ec2-user/tomcat/webapps'
+           }
         }
     }
 }
