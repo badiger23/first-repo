@@ -15,17 +15,18 @@ pipeline {
                 }
             }
         }
-        stage('mail') {
-            steps {
-                script {
-                    emailext (
-                        to: 'adi.balaji1@gmail.com',
-                        subject: 'Jenkins email',
-                        body: 'Hi, welcome to Jenkins! Email alerts.',
-                        attachLog: true
-                    )
-                }
-            }
+       stage('mail') {
+           steps {
+               script {
+                   emailext (
+                    to: 'adi.balaji1@gmail.com',
+                    subject: 'Jenkins email',
+                     body: 'Hi, welcome to Jenkins! Email alerts.',
+                    attachLog: true
+                 )
+               }
+         }
+     }
         }
     }
 }
