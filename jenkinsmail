@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/adibali/first-repo.git'
+                git branch: 'main', url: 'https://github.com/badiger23/first-repo.git'
             }
         }
         stage('env') {
@@ -18,7 +18,7 @@ pipeline {
     post {
         always {
             emailext (
-                to: 'adi.balaji1@gmail.com',
+                to: 'badigerishwar23@gmail.com',
                 subject: 'Jenkins email',
                 body: 'echo "Job ${env.JOB_NAME} is running on ${env.JENKINS_URL} and having build no: ${env.BUILD_ID}"',
                 attachLog: true
