@@ -4,14 +4,11 @@ pipeline {
         STRING_VAR = "adithya"
         CHOICE_VAR = "DEV"
         BOOLEAN_VAR = true
-        // Credentials
-        SECRET_TEXT = credentials('MY_TOKEN')
-        USERNAME = credentials('MY_USER_NAME')
-          }
+       }
     
     stages {
         stage('Stage 1') {
-            agent { label 'agent1' }
+            agent { label 'master' }
             steps {
                 echo "Running Stage 1"
                 script {
@@ -22,7 +19,7 @@ pipeline {
             }
         }
         stage('Stage 2') {
-            agent { label 'agent1' }
+            agent { label 'master' }
             steps {
                 echo "Running Stage 2"
                 script {
@@ -43,7 +40,7 @@ pipeline {
                     }
                 }
             }
-            agent { label 'agent2' }
+            agent { label 'agent1' }
             steps {
                 echo "Running Stage 3"
                 script {
@@ -55,7 +52,7 @@ pipeline {
             }
         }
         stage('Stage 4') {
-            agent { label 'agent2' }
+            agent { label 'agent1' }
             
             steps {
                 echo "Running Stage 4"
