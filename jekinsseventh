@@ -1,0 +1,81 @@
+pipeline {
+    agent none
+    environment {
+        STRING_VAR = "adithya"
+        CHOICE_VAR = "DEV"
+        BOOLEAN_VAR = true
+       }
+    
+    stages {
+        stage('Stage 1') {
+            agent { label 'master' }
+            steps {
+                echo "Running Stage 1"
+                script {
+                    // Using a global variable
+                    buildNumber = env.BUILD_NUMBER
+                    echo "Build Number: ${buildNumber}"
+                }
+            }
+        }
+        stage('Stage 2') {
+            agent { label 'master' }
+            steps {
+                echo "Running Stage 2"
+                script {
+                    // Using a global variable
+                    jobName = "env.JOB_NAME"
+                    echo "Job Name: ${jobName}"
+                    echo "stage2 completed successfully"
+                }
+            }
+        }
+        stage('Stage 3') {
+            
+            when {
+                allOf {
+                    
+                    expression {
+                        branch 'master, DEV'
+                    }
+                }
+            }
+            agent { label 'agent1' }
+            steps {
+                echo "Running Stage 3"
+                script {
+                    // Using a global variable
+                    jenkinsUrl = "env.JENKINS_URL"
+                    echo "Jenkins URL: ${jenkinsUrl}"
+                    echo "stage3 completed successfully"
+                }
+            }
+        }
+        stage('Stage 4') {
+            agent { label 'agent1' }
+            
+            steps {
+                echo "Running Stage 4"
+                script {
+                    // Using a global variable
+                    buildUrl = "env.BUILD_URL"
+                    echo "Build URL: ${buildUrl}"
+                }
+            }
+        }
+    }
+    
+    triggers {
+        cron('H * * * *') // Periodic trigger every hour
+        pollSCM('*/30 * * * *') // Poll SCM every 30 minutes
+    }
+    
+    post {
+        always {
+            echo "sending email"
+            emailext body: "Build ${env.BUILD_NUMBER} of ${env.JOB_NAME} has finished. Status: ${currentBuild.currentResult}",
+                     subject: "Jenkins Build Notification",
+                     to: "your@email.com"
+        }
+    }
+}
